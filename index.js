@@ -1,13 +1,9 @@
 const express = require('express')
 const app = express()
-const port = 3000
+const PORT = 3000
+const routes = require('./routes/index')
 
-function getPizzas(req,res){
-	res.send('Getting all Pizza!')
-}
+// we have all of the routes taken care of in the js files in the routes folder but we need to tell express to use the routes there
+app.use('/',routes)
 
-app.get('/pizzas', (req,res)=>getPizzas(req,res))
-
-app.get('/*', (req,res)=>res.send('404 -> Resource not found'))
-
-app.listen(port, () => console.log(`Your 🍕 pizza API is running on port ${port}!`))
+app.listen(PORT, () => console.log(`Your 🍕 pizza API is running on port ${PORT}!`))
