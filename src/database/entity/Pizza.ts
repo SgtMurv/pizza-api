@@ -1,10 +1,10 @@
 import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm'
 
-@Entity
+@Entity()
 export class Pizza {
-    @PrimaryGeneratedColumn
+    @PrimaryGeneratedColumn()
     id: number
 
-    @Column
+    @Column()
     name: string
 }

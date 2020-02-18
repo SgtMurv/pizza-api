@@ -3,8 +3,14 @@ module.exports = {
     env: {
         node: true,
     },
-    extends: ['plugin:prettier/recommended', 'eslint:recommended'],
-    plugins: ['prettier'],
+    extends: [
+        'plugin:prettier/recommended',
+        'eslint:recommended',
+        'plugin:@typescript-eslint/eslint-recommended',
+        'plugin:@typescript-eslint/recommended',
+        'plugin:@typescript-eslint/recommended-requiring-type-checking',
+    ],
+    plugins: ['prettier', '@typescript-eslint'],
     rules: {
         'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
         'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
