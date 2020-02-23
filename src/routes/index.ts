@@ -1,6 +1,6 @@
-import express = require('express')
+import * as express from 'express'
 const router = express.Router()
-const pizzaController = require('../controllers/pizzaController')
+import * as pizzaController from '../controllers/pizzaController'
 
 router.get('/pizzas', pizzaController.getAllPizza)
 
