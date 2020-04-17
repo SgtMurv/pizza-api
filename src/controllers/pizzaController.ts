@@ -1,11 +1,17 @@
 import { getConnection } from 'typeorm' // allows us access to the connection object even though we are in a different file
 import { Pizza } from '../database/entity/Pizza'
 
+// returns all of the pizza data where the name contains the value in the optional search string parameter
 async function getAllPizza(req, res) {
-    const pizza = await getConnection()
+    let searchString = req.query.searchString ? req.query.searchString : ''
+    let pizzas = await getConnection()
         .getRepository(Pizza)
         .find()
-    res.json(pizza)
+    if (searchString != '') {
+        pizzas = pizzas.filter(pizza => pizza.name.includes(searchString))
+    }
+
+    res.json(pizzas)
 }
 
 async function addNewPizza(req, res) {

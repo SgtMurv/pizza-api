@@ -1,5 +1,5 @@
 import * as express from 'express'
-const router = express.Router()
+const router = express.Router({ mergeParams: true })
 import * as pizzaController from '../controllers/pizzaController'
 
 router.get('/pizzas', pizzaController.getAllPizza)
