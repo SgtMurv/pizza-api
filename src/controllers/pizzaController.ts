@@ -8,4 +8,14 @@ async function getAllPizza(req, res) {
     res.json(pizza)
 }
 
-export { getAllPizza }
+async function addNewPizza(req, res) {
+    const pizzaRepository = await getConnection().getRepository(Pizza)
+    const pizzaDataFromClient = req.body
+    const newPizza = new Pizza()
+    newPizza.name = pizzaDataFromClient.name
+    await pizzaRepository.save(newPizza)
+    console.log(`${newPizza.name} has been added to the database! :)`)
+    res.send(`Adding ${newPizza.name} to the database...`)
+}
+
+export { getAllPizza, addNewPizza }

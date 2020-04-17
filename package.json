@@ -2,9 +2,11 @@
     "name": "pizza-api",
     "version": "1.0.0",
     "description": "A repo for me to refresh my memory on creating an api in Node and Express. To keep it fun and tasty, I will be relating it back to my favourite hobby... Pizza 🍕",
-    "main": "index.js",
+    "main": "src/index.ts",
     "scripts": {
-        "dev": "ts-node ./src/index.ts"
+        "start": "node --inspect=8000 -r ts-node/register ./src/index.ts",
+        "start:watch": "nodemon",
+        "build": "tsc"
     },
     "repository": {
         "type": "git",
@@ -21,6 +23,7 @@
         "dotenv": "^8.2.0",
         "express": "^4.17.1",
         "mysql": "^2.18.1",
+        "nodemon": "^2.0.3",
         "reflect-metadata": "^0.1.13",
         "ts-node": "^8.6.2",
         "typeorm": "^0.2.22"
